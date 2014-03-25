@@ -35,7 +35,8 @@
     var link = d.createElement('link');
     link.id = 'yuehu-bookmark-style';
     link.rel = 'stylesheet';
-    link.href = '//dn-yuehu.qbox.me/assets/bookmark.css';
+    var t = parseInt(new Date().valueOf() / 100000);
+    link.href = '//dn-yuehu.qbox.me/assets/bookmark.css?t=' + t;
     d.body.appendChild(link);
   }
 
