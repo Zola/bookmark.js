@@ -34,6 +34,7 @@
   if (!d.getElementById('yuehu-bookmark-style')) {
     var link = d.createElement('link');
     link.id = 'yuehu-bookmark-style';
+    link.rel = 'stylesheet';
     link.href = '//dn-yuehu.qbox.me/assets/bookmark.css';
     d.body.appendChild(link);
   }
