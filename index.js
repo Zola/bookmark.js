@@ -4,6 +4,20 @@
   // online
   var base = '//yuehu.io/me/bookmarks';
 
+  if (!d.getElementById('yuehu-bookmark-style')) {
+    var link = d.createElement('link');
+    link.id = 'yuehu-bookmark-style';
+    link.rel = 'stylesheet';
+    var t = parseInt(new Date().valueOf() / 100000);
+    link.href = '//dn-yuehu.qbox.me/assets/bookmark.css?t=' + t;
+    d.body.appendChild(link);
+  }
+
+  var notice = d.createElement('div');
+  notice.className = 'yuehu-bookmark-notice';
+  notice.innerHTML = '<div class="yuehu-bookmark-loading"><span class="dot dot-0"></span><span class="dot dot-1"></span><span class="dot dot-2"></span></div>';
+  d.body.appendChild(notice);
+
   // find page url
   var pageURL = location.href;
   var links = d.getElementsByTagName('link');
@@ -19,26 +33,8 @@
     pageURL = 'http://' + pageURL;
   }
 
-  var createElement = function(tag, className) {
-    var el = d.createElement(tag);
-    el.className = className;
-  };
-
-  var notice = d.createElement('div');
-  notice.className = 'yuehu-bookmark-notice';
-  notice.innerHTML = '<div class="yuehu-bookmark-loading"><span class="dot dot-0"></span><span class="dot dot-1"></span><span class="dot dot-2"></span></div>';
-
   var script = d.createElement('script');
   script.src = base + '?via=bookmark&url=' + pageURL;
-
-  if (!d.getElementById('yuehu-bookmark-style')) {
-    var link = d.createElement('link');
-    link.id = 'yuehu-bookmark-style';
-    link.rel = 'stylesheet';
-    var t = parseInt(new Date().valueOf() / 100000);
-    link.href = '//dn-yuehu.qbox.me/assets/bookmark.css?t=' + t;
-    d.body.appendChild(link);
-  }
 
   // bookmark callback
   window._yuehu_bookmark = function(resp) {
@@ -56,5 +52,4 @@
   };
 
   d.body.appendChild(script);
-  d.body.appendChild(notice);
 })(document);
