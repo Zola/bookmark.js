@@ -6,3 +6,5 @@ build:
 publish: build
 	@qboxrsctl put yuehu assets/bookmark.js build/bookmark.js
 	@qboxrsctl put yuehu assets/bookmark.css build/bookmark.css
+
+.PHONY: build
